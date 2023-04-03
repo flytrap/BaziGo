@@ -1,4 +1,4 @@
-module github.com/warrially/BaziGo
+module github.com/flytrap/BaziGo
 
 go 1.16
 

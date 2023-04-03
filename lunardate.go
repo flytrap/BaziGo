@@ -350,7 +350,7 @@ func (m *TLunarDate) GetMonthFrom64TimeStamp(nTimeStamp int64) {
 	// 这里开始特殊处理
 	// 全年一共几个月
 	nTotalMonth := 12
-	if m.nLeapMonth == 0 {
+	if m.nLeapMonth != 0 {
 		nTotalMonth++
 	}
 
