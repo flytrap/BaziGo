@@ -23,7 +23,7 @@ func NewSolarDate(nYear, nMonth, nDay, nHour, nMinute, nSecond int) *TSolarDate 
 		return nil
 	}
 
-	// 检查时间是否合法, 传入一个大值HOUR导致崩溃的BUG // fix chadwi https://github.com/warrially/BaziGo/issues/3
+	// 检查时间是否合法, 传入一个大值HOUR导致崩溃的BUG // fix chadwi https://BaziGo/issues/3
 	if !pDate.GetTimeIsValid(nHour, nMinute, nSecond) {
 		fmt.Println("无效的时间", nHour, nMinute, nSecond)
 		return nil
