@@ -205,6 +205,6 @@ func (m *TZhu) ShiShen() *TShiShen {
 }
 
 // 获取长生宫
-func (m *TZhu) Changesheng(gan int, zhi int) *TChangSheng {
+func (m *TZhu) Changesheng() *TChangSheng {
 	return m.pChangSheng
 }
