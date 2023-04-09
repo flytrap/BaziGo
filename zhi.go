@@ -1,5 +1,7 @@
 package bazi
 
+import "strings"
+
 // 地支
 
 // GetDiZhiFromNumber 从数字获得地支名, 0-9
@@ -39,6 +41,13 @@ func NewZhi(nValue int) *TZhi {
 	nValue %= 12
 	Zhi := TZhi(nValue)
 	return &Zhi
+}
+
+func NewZhiFromString(value string) *TZhi {
+	s := "子丑寅卯辰巳午未申酉戌亥"
+	i := strings.Index(s, value)
+	pZhi := TZhi(i)
+	return &pZhi
 }
 
 // TZhi 地支

@@ -1,5 +1,7 @@
 package bazi
 
+import "strings"
+
 // 天干
 // 甲木、乙木、丙火、丁火、戊土、己土、庚金、辛金、壬水、癸水，其中甲 丙 戊 庚 壬为阳性，乙丁己辛癸为阴性
 // 诗曰：
@@ -39,6 +41,13 @@ func GetTianGanFromNumber(nValue int) string {
 func NewGan(nValue int) *TGan {
 	nValue %= 10
 	pGan := TGan(nValue)
+	return &pGan
+}
+
+func NewGanFromString(value string) *TGan {
+	s := "甲乙丙丁戊己庚辛壬癸"
+	i := strings.Index(s, value)
+	pGan := TGan(i)
 	return &pGan
 }
 
