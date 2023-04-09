@@ -113,3 +113,30 @@ func (m *TBazi) DaYun() *TDaYun {
 func (m *TBazi) QiYunDate() *TSolarDate {
 	return m.pQiYunDate
 }
+
+// 胎元
+func (m *TBazi) TaiYuan() string {
+	gz := m.pSiZhu.pMonthZhu.GanZhi().ToInt()
+	gz = (gz + 1) % 60
+	return NewGanZhi(gz).String()
+}
+
+// 命宫
+func (m *TBazi) MingGong() string {
+	num := (m.pSiZhu.pMonthZhu.Zhi().ToInt()+11)%12 + (m.pSiZhu.pDayZhu.Zhi().ToInt()+11)%12
+	zhi := 0
+	if num < 15 {
+		zhi = (15 - num) % 12
+	} else {
+		zhi = (27 - num) % 12
+	}
+	fgz := GetYearFirstMonthGanZhi(m.pSiZhu.YearZhu().Gan().ToInt())
+
+	for i := 0; i < 12; i++ {
+		gz := NewGanZhi(i + fgz)
+		if zhi == gz.ToInt()%12 {
+			return gz.String()
+		}
+	}
+	return ""
+}
