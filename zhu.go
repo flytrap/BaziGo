@@ -208,3 +208,32 @@ func (m *TZhu) ShiShen() *TShiShen {
 func (m *TZhu) Changesheng() *TChangSheng {
 	return m.pChangSheng
 }
+
+// 旬空查询
+// 旬空查法:地支数-天干数=空亡数
+// (0或12戌亥,2子丑,4寅卯,6辰巳,8午未,10申酉)即将“地支”减“天干”即可。若不够减,加12再减。得数必是双数,加上前面的单数即可(因每旬“空亡”有两天)。
+// 若减后得数为2,必是子、丑空,为4,必是寅、卯空,为6,必是辰、巳空。例如“丙辰”日,辰5-丙3=2丑,即子、丑空。
+// 又如“壬申”日,壬9-申9=0,即戌、亥空。又如“辛丑”日,丑2-辛8不够减,加12再减,即2+12-8=6,6即辰、巳空
+func (m *TZhu) XunKong() string {
+	g, z := m.pGanZhi.ExtractGanZhi()
+	gan := g.ToInt()
+	zhi := z.ToInt()
+	if zhi <= gan {
+		zhi += 12
+	}
+	ret := zhi - gan
+	if ret == 2 {
+		return "子丑"
+	} else if ret == 4 {
+		return "寅卯"
+	} else if ret == 6 {
+		return "辰巳"
+	} else if ret == 8 {
+		return "午未"
+	} else if ret == 10 {
+		return "申酉"
+	} else if ret == 12 {
+		return "戌亥"
+	}
+	return ""
+}
