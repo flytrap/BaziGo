@@ -6,12 +6,13 @@ import "fmt"
 
 // TZhu 柱
 type TZhu struct {
-	pGanZhi  *TGanZhi  // 干支
-	pGan     *TGan     // 天干
-	pZhi     *TZhi     // 地支
-	pCangGan *TCangGan // 藏干
-	pShiShen *TShiShen // 十神
-	nDayGan  int       // 日干值
+	pGanZhi     *TGanZhi     // 干支
+	pGan        *TGan        // 天干
+	pZhi        *TZhi        // 地支
+	pCangGan    *TCangGan    // 藏干
+	pShiShen    *TShiShen    // 十神
+	pChangSheng *TChangSheng // 长生宫
+	nDayGan     int          // 日干值
 }
 
 // NewZhu 新建柱子
@@ -43,6 +44,11 @@ func (m *TZhu) genShiShen() {
 	m.pShiShen = NewShiShenFromGan(m.nDayGan, m.pGan)
 }
 
+// 生成长生宫
+func (m *TZhu) genChangeSheng() {
+	m.pChangSheng = NewChangShengFromGan(m.nDayGan, m.pZhi.ToInt())
+}
+
 //
 func (m *TZhu) genBaseGanZhi(nGanZhi int) *TZhu {
 	// 直接设置成品干支
@@ -68,6 +74,8 @@ func (m *TZhu) genYearGanZhi(nYear int) *TZhu {
 	// 在这里计算藏干
 	m.genCangGan()
 	m.genShiShen()
+
+	m.genChangeSheng() // 计算长生宫
 	return m
 }
 
@@ -194,4 +202,9 @@ func (m *TZhu) CangGan() *TCangGan {
 // ShiShen 获取十神
 func (m *TZhu) ShiShen() *TShiShen {
 	return m.pShiShen
+}
+
+// 获取长生宫
+func (m *TZhu) Changesheng(gan int, zhi int) *TChangSheng {
+	return m.pChangSheng
 }
