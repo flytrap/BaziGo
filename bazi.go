@@ -115,15 +115,14 @@ func (m *TBazi) QiYunDate() *TSolarDate {
 }
 
 // 胎元
-func (m *TBazi) TaiYuan() string {
-	gz := m.pSiZhu.pMonthZhu.GanZhi().ToInt()
-	gz = (gz + 1) % 60
-	return NewGanZhi(gz).String()
+func (m *TBazi) TaiYuan() *TGanZhi {
+	g, z := m.pSiZhu.pMonthZhu.GanZhi().ExtractGanZhi()
+	return CombineGanZhi(NewGan(g.ToInt()+1), NewZhi(z.ToInt()+3))
 }
 
 // 命宫
-func (m *TBazi) MingGong() string {
-	num := (m.pSiZhu.pMonthZhu.Zhi().ToInt()+11)%12 + (m.pSiZhu.pDayZhu.Zhi().ToInt()+11)%12
+func (m *TBazi) MingGong() *TGanZhi {
+	num := (m.pSiZhu.pHourZhu.Zhi().ToInt()+11)%12 + (m.pSiZhu.pMonthZhu.Zhi().ToInt()+11)%12
 	zhi := 0
 	if num < 15 {
 		zhi = (15 - num) % 12
@@ -135,8 +134,8 @@ func (m *TBazi) MingGong() string {
 	for i := 0; i < 12; i++ {
 		gz := NewGanZhi(i + fgz)
 		if zhi == gz.ToInt()%12 {
-			return gz.String()
+			return gz
 		}
 	}
-	return ""
+	return nil
 }
