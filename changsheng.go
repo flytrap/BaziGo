@@ -18,7 +18,7 @@ var ChangSheng = [12]string{"长生", "沐浴", "冠带", "临官（禄）", "�
 // GetChangShengFromNumber 从数字获得长生名, 0-11
 func GetChangShengFromNumber(nValue int) string {
 	if nValue > 11 {
-		return ""
+		nValue %= 12
 	}
 	return ChangSheng[nValue]
 }
@@ -56,5 +56,5 @@ func (m *TChangSheng) Value() int {
 
 // String 转换成可阅读的字符串
 func (m *TChangSheng) String() string {
-	return GetShiShenFromNumber(m.Value())
+	return GetChangShengFromNumber(m.Value())
 }
