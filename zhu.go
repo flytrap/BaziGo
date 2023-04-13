@@ -112,6 +112,7 @@ func (m *TZhu) genMonthGanZhi(nMonth int, nYearGan int) *TZhu {
 	// 在这里计算藏干
 	m.genCangGan()
 	m.genShiShen()
+	m.genChangeSheng() // 计算长生宫
 	return m
 }
 
@@ -132,6 +133,7 @@ func (m *TZhu) genDayGanZhi(nAllDays int) *TZhu {
 	// 在这里计算藏干
 	m.genCangGan()
 	m.genShiShen()
+	m.genChangeSheng() // 计算长生宫
 	return m
 }
 
@@ -171,6 +173,7 @@ func (m *TZhu) genHourGanZhi(nHour int) *TZhu {
 	// 在这里计算藏干
 	m.genCangGan()
 	m.genShiShen()
+	m.genChangeSheng() // 计算长生宫
 	return m
 }
 
