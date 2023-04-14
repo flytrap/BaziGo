@@ -17,8 +17,21 @@ var WuHuDunMap = map[string]string{
 	"癸": "甲寅",
 }
 
+var WuHuDunIntMap = map[int]int{
+	0: 2,
+	5: 2,
+	1: 14,
+	6: 14,
+	2: 26,
+	7: 26,
+	3: 38,
+	8: 38,
+	4: 50,
+	9: 50,
+}
+
 func GetYearFirstMonthGanZhi(yGan int) int {
-	return (yGan/2)*12 + 2
+	return (yGan%5)*12 + 2
 }
 
 func GetYearFirstMonthGanZhiString(yGan string) string {
