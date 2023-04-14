@@ -129,7 +129,9 @@ func (m *TBazi) MingGong() *TGanZhi {
 	} else {
 		zhi = (27 - num) % 12
 	}
-	fgz := GetYearFirstMonthGanZhi(m.SiZhu().YearZhu().Gan().ToInt())
+	yg := m.SiZhu().YearZhu().Gan().ToInt()
+
+	fgz := GetYearFirstMonthGanZhi(yg)
 
 	for i := 0; i < 12; i++ {
 		gz := NewGanZhi(i + fgz)
