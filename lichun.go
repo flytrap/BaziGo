@@ -1,7 +1,7 @@
 package bazi
 
 // 立春列表
-var lichunlist = []*TSolarDate{
+var Lichunlist = []*TSolarDate{
 	{31, 2, 5, 22, 25, 38},
 	{32, 2, 6, 4, 0, 1},
 	{33, 2, 5, 9, 52, 46},
@@ -2283,10 +2283,10 @@ func GetLiChunYear(pSolarDate *TSolarDate) int {
 	}
 
 	// 时间是否大于当年立春
-	if pSolarDate.Get64TimeStamp() > lichunlist[nYear-31].Get64TimeStamp() {
+	if pSolarDate.Get64TimeStamp() > Lichunlist[nYear-31].Get64TimeStamp() {
 		return nYear
 	}
 
-	// 没到立春
+	// 没到立LL
 	return nYear - 1
 }
