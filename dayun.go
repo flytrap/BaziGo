@@ -42,10 +42,11 @@ func (m *TDaYun) init(pSiZhu *TSiZhu, nSex int) *TDaYun {
 		} else {
 			m.isShunNi = false
 			m.zhuList[i].genBaseGanZhi((nMonthGanZhi + 59 - i) % 60)
-
 		}
+		m.zhuList[i].genCangGan()
+		m.zhuList[i].genShiShen()
+		m.zhuList[i].genChangeSheng()
 	}
-
 	return m
 }
 
