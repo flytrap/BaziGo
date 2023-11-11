@@ -174,6 +174,7 @@ func (m *TLunarDate) GetDateIsValid() bool {
 	return true
 }
 
+<<<<<<< HEAD
 // GetTimeIsValid 检查时间是否合法
 func (m *TLunarDate) GetTimeIsValid(nHour, nMinute, nSecond int) bool {
 	if nHour < 0 || nHour > 23 {
@@ -190,6 +191,8 @@ func (m *TLunarDate) GetTimeIsValid(nHour, nMinute, nSecond int) bool {
 	return true
 }
 
+=======
+>>>>>>> fix chadwi issues/3
 // genNormal 第几个月改成闰月
 func (m *TLunarDate) genNormal() {
 	m.GetLeapMonth() // 获取闰月信息
@@ -368,7 +371,11 @@ func (m *TLunarDate) GetYearFrom64TimeStamp(nTimeStamp int64) *TLunarDate {
 
 // GetMonthFrom64TimeStamp .
 func (m *TLunarDate) GetMonthFrom64TimeStamp(nTimeStamp int64) {
+<<<<<<< HEAD
 	// 计算完毕年份以后, 需要在这里先判断 // fix chadwi https://BaziGo/issues/3
+=======
+	// 计算完毕年份以后, 需要在这里先判断 // fix chadwi https://github.com/warrially/BaziGo/issues/3
+>>>>>>> fix chadwi issues/3
 	m.GetLeapMonth()
 	// 这里开始特殊处理
 	// 全年一共几个月
