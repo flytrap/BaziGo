@@ -368,11 +368,7 @@ func (m *TLunarDate) GetYearFrom64TimeStamp(nTimeStamp int64) *TLunarDate {
 
 // GetMonthFrom64TimeStamp .
 func (m *TLunarDate) GetMonthFrom64TimeStamp(nTimeStamp int64) {
-<<<<<<< HEAD
-	// 计算完毕年份以后, 需要在这里先判断 // fix chadwi https://BaziGo/issues/3
-=======
 	// 计算完毕年份以后, 需要在这里先判断 // fix chadwi https://github.com/warrially/BaziGo/issues/3
->>>>>>> fix chadwi issues/3
 	m.GetLeapMonth()
 	// 这里开始特殊处理
 	// 全年一共几个月

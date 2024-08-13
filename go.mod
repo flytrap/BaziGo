@@ -3,7 +3,6 @@ module BaziGo
 go 1.20
 
 require (
-	github.com/flytrap/BaziGo v1.0.15
 	github.com/stretchr/testify v1.8.2
 	github.com/yangtizi/htmlgo v1.0.0
 )

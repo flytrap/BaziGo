@@ -4,7 +4,8 @@ import (
 	"testing"
 	"time"
 
-	bz "github.com/flytrap/BaziGo"
+	bz "BaziGo"
+
 	"github.com/stretchr/testify/assert"
 )
 
