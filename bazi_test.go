@@ -3,7 +3,7 @@ package bazi_test
 import (
 	"testing"
 
-	bz "BaziGo"
+	bz "github.com/flytrap/BaziGo"
 )
 
 func TestMingGong(t *testing.T) {

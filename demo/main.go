@@ -4,7 +4,7 @@ import (
 	"flag"
 	"fmt"
 
-	bazi "BaziGo"
+	bazi "github.com/flytrap/BaziGo"
 )
 
 func main() {

@@ -47,7 +47,7 @@ import (
 	"flag"
 	"fmt"
 
-	bazi "BaziGo"
+	bazi "github.com/flytrap/BaziGo"
 )
 
 func main() {
@@ -82,7 +82,7 @@ import (
 	"fmt"
 	"net/http"
 
-	bazi "BaziGo"
+	bazi "github.com/flytrap/BaziGo"
 )
 
 type Myhandler struct{}

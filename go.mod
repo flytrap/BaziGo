@@ -1,4 +1,4 @@
-module BaziGo
+module github.com/flytrap/BaziGo
 
 go 1.20
 
