@@ -174,7 +174,6 @@ func (m *TLunarDate) GetDateIsValid() bool {
 	return true
 }
 
-<<<<<<< HEAD
 // GetTimeIsValid 检查时间是否合法
 func (m *TLunarDate) GetTimeIsValid(nHour, nMinute, nSecond int) bool {
 	if nHour < 0 || nHour > 23 {
@@ -191,8 +190,6 @@ func (m *TLunarDate) GetTimeIsValid(nHour, nMinute, nSecond int) bool {
 	return true
 }
 
-=======
->>>>>>> fix chadwi issues/3
 // genNormal 第几个月改成闰月
 func (m *TLunarDate) genNormal() {
 	m.GetLeapMonth() // 获取闰月信息
