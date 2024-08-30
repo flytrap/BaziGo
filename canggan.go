@@ -86,3 +86,13 @@ func (m *TCangGan) String() string {
 
 	return strResult
 }
+
+func (m *TCangGan) Array() []string {
+	strResult := []string{}
+
+	for i := 0; i < m.Size(); i++ {
+		strResult = append(strResult, m.Gan(i).String()+"["+m.ShiShen(i).String()+"]")
+	}
+
+	return strResult
+}
