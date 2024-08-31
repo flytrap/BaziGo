@@ -101,6 +101,33 @@ func (m *TXiYong) Max() string {
 	return mm[max]
 }
 
+func (m *TXiYong) Must() string {
+	mm := map[int]string{}
+	mm[m.wuxingList[0]] = "金"
+	mm[m.wuxingList[1]] = "木"
+	mm[m.wuxingList[2]] = "水"
+	mm[m.wuxingList[3]] = "火"
+	mm[m.wuxingList[4]] = "土"
+
+	sum := 0
+	max := m.wuxingList[0]
+	min := m.wuxingList[0]
+	for _, num := range m.wuxingList {
+		sum += num
+		if num > max {
+			max = num
+		}
+		if num < min {
+			min = num
+		}
+	}
+	avg := sum / 5
+	if avg-min > max-avg {
+		return mm[min]
+	}
+	return mm[max]
+}
+
 // 天干地支强度测试
 
 // 天干强度表
