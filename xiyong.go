@@ -91,7 +91,7 @@ func (m *TXiYong) Max() string {
 	mm[m.wuxingList[3]] = "火"
 	mm[m.wuxingList[4]] = "土"
 
-	max := int(^uint(0) >> 1)
+	max := m.wuxingList[0]
 	for _, num := range m.wuxingList {
 		if num > max {
 			max = num
